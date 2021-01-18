@@ -1,6 +1,6 @@
 # Intellij
 /.idea/
-.idea/*
+.idea/
 *.iml
 *.iws
 
@@ -10,4 +10,4 @@
 # Build tool
 /build/
 /out/
-
+out/
