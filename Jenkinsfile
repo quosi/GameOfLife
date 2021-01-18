@@ -4,9 +4,6 @@ def gitURL = "https://github.com/quosi/GameOfLife.git"
 def gitURL_push = "https://github.com/quosi/GameOfLife.git"
 def git_timeout = 60
 
-def utils = new Utils(this, gitURL, gitURL_push)
-def deployer = new Deployer(this, utils)
-
 def project = "Game of Life"
 def shortProject = "GoL"
 def archs = ["mac"]
