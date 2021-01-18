@@ -1,5 +1,5 @@
 # Intellij
-.idea/
+/.idea/
 .idea/*
 *.iml
 *.iws
@@ -8,5 +8,6 @@
 .DS_Store
 
 # Build tool
-build/
-out/
+/build/
+/out/
+
