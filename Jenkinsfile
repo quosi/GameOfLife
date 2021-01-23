@@ -13,18 +13,13 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        
         script {
-          echo "---------------- Build on MacOS ----------------\n ${env.NODE_NAME}\n ----------------\n"
-    			sh '''
-          	export MACOSX_DEPLOYMENT_TARGET=10.15
-						mkdir -p ant_build
-						cd ant_build
-            ant ..
-            '''
-            echo "building now with ant ..."
-            echo "${env.BRANCH_NAME}"
-            echo"${env.BUILD_NUMBER}
-
+          echo "---------------- Build on MacOS | Node: ${env.NODE_NAME}\n ----------------\n"
+          echo "---------------- Build Branch ${env.BRANCH_NAME} | BuildNr. ${env.BUILD_NUMBER}\n ----------------\n"
+          echo "building now with ant ..."
+          sh 'ant -version'
+          sh 'ant'
           
         }
         

@@ -2,7 +2,7 @@
 <project name="Game of Life" basedir="." default="build">
 
     <property name="src.dir" value="src"/>
-    <property name="build.dir" value="build/classes"/>
+    <property name="build.dir" value="ant_build/"/>
     <property name="name" value="GoL"/>
 
     <path id="main-classpath">
