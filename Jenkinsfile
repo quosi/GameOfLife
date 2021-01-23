@@ -33,7 +33,7 @@ pipeline {
         echo "----> Build on MacOS | Node: ${env.NODE_NAME} <----"
         echo "----> Build Branch ${env.BRANCH_NAME} | BuildNr. ${env.BUILD_NUMBER} <----"
         sh "${getPython()} --version"
-        sh "pytest"
+        sh "${getPython()} pytest"
 
       }
     }
