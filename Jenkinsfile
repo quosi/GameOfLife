@@ -17,15 +17,13 @@ pipeline {
           echo "---------------- Build on MacOS ----------------\n ${env.NODE_NAME}\n ----------------\n"
     			sh '''
           	export MACOSX_DEPLOYMENT_TARGET=10.15
-						mkdir -p mac
-						cd mac
-            git clone https://github.com/quosi/GameOfLife.git
-            pwd
-            ls -alt
+						mkdir -p ant_build
+						cd ant_build
+            ant ..
             '''
             echo "building now with ant ..."
             echo "${env.BRANCH_NAME}"
-
+            echo"${env.BUILD_NUMBER}
 
           
         }
