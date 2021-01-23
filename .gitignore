@@ -9,5 +9,6 @@
 
 # Build tool
 /build/
+/ant_build/
 /out/
 out/
