@@ -19,9 +19,14 @@ pipeline {
           	export MACOSX_DEPLOYMENT_TARGET=10.15
 						mkdir -p mac
 						cd mac
-            echo "buildinf now with ant ...
+            pwd
+            ls -alt
+            '''
+            echo "building now with ant ..."
+            echo "${env.BRANCH_NAME}"
 
-          '''
+
+          
         }
         
         stash name: "${shortProject}_mac", includes: 'mac/'
