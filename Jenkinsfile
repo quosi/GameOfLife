@@ -19,7 +19,21 @@ pipeline {
           	export MACOSX_DEPLOYMENT_TARGET=10.15
 						mkdir -p mac
 						cd mac
-            ant
+
+            withAnt(installation: 'myinstall') {
+              dir("build") {
+              if (isUnix()) {
+                sh "ant"
+              } else {
+                bat "ant"
+                }
+              }
+            }
+
+
+
+
+
           '''
         }
         

@@ -20,7 +20,7 @@
 
     <target name="build" description="Compile java files">
         <mkdir dir="${build.dir}"/>
-        <javac destdir="${build.dir}" source="15" target="15" debug="true" deprecation="false" optimize="false" failonerror="true">
+        <javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false" source="15" target="15" debug="true" deprecation="false" optimize="false" failonerror="true">
             <src path="${src.dir}"/>
             <classpath refid="main-classpath"/>
         </javac>
