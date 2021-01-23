@@ -19,6 +19,7 @@ pipeline {
           	export MACOSX_DEPLOYMENT_TARGET=10.15
 						mkdir -p mac
 						cd mac
+            git clone https://github.com/quosi/GameOfLife.git
             pwd
             ls -alt
             '''
