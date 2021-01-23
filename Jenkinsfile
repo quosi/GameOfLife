@@ -23,8 +23,8 @@ pipeline {
           sh "${getAnt}"
         }
         
-        stash name: "${shortProject}_mac", includes: 'mac/'
-				archiveArtifacts artifacts: 'mac/'
+        stash name: "${shortProject}_mac", includes: 'ant_build/'
+				archiveArtifacts artifacts: 'ant_build/'
 
       }
 
