@@ -41,6 +41,15 @@ pipeline {
   }
 }
 
+// return true if agent is unix
+// Jenkins just knows unix or windows, there is no mac (mac == unix)
+def isUnixNode() {
+    return "${env.IS_UNIX}" == "true"
+}
+// return true if agent is mac
+def isMac() {
+    return "${env.IS_MAC}" == "true"
+}
 // return python binary name
 def getPython() {
     if ( isUnixNode() ) {
