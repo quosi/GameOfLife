@@ -7,27 +7,27 @@ def git_timeout = 60
 def project = "Game of Life"
 def shortProject = "GoL"
 def archs = ["mac"]
+def getAnt = "/usr/local/bin/ant"
 
 pipeline {
   agent any
   stages {
     stage('Build') {
       steps {
-        
+
         script {
-          echo "---------------- Build on MacOS | Node: ${env.NODE_NAME}\n ----------------\n"
-          echo "---------------- Build Branch ${env.BRANCH_NAME} | BuildNr. ${env.BUILD_NUMBER}\n ----------------\n"
-          echo "building now with ant ..."
-          sh 'ant -version'
-          sh 'ant'
-          
+          echo "----> Build on MacOS | Node: ${env.NODE_NAME} <----"
+          echo "----> Build Branch ${env.BRANCH_NAME} | BuildNr. ${env.BUILD_NUMBER} <----"
+          echo "building Project ${project} with Ant ..."
+          sh "${getAnt} -version"
+          sh "${getAnt}"
         }
         
         stash name: "${shortProject}_mac", includes: 'mac/'
 				archiveArtifacts artifacts: 'mac/'
 
-        }
       }
 
     }
   }
+}
