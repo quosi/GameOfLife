@@ -27,7 +27,24 @@ pipeline {
 				archiveArtifacts artifacts: 'ant_build/'
 
       }
-
     }
+    stage('PyTest') {
+      steps {
+        echo "----> Build on MacOS | Node: ${env.NODE_NAME} <----"
+        echo "----> Build Branch ${env.BRANCH_NAME} | BuildNr. ${env.BUILD_NUMBER} <----"
+        sh "${getPython()} --version"
+        sh "pytest"
+
+      }
+    }
+  
   }
+}
+
+// return python binary name
+def getPython() {
+    if ( isUnixNode() ) {
+        return "python3"
+    }
+    return "python"
 }
