@@ -14,7 +14,6 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-
         script {
           echo "----> Build on MacOS | Node: ${env.NODE_NAME} <----"
           echo "----> Build Branch ${env.BRANCH_NAME} | BuildNr. ${env.BUILD_NUMBER} <----"
@@ -22,27 +21,36 @@ pipeline {
           sh "${getAnt} -version"
           sh "${getAnt}"
         }
-        
         stash name: "${shortProject}_mac", includes: 'ant_build/'
 				archiveArtifacts artifacts: 'ant_build/'
-
       }
     }
+
     stage('PyTest') {
       steps {
-        echo "----> Build on MacOS | Node: ${env.NODE_NAME} <----"
-        echo "----> Build Branch ${env.BRANCH_NAME} | BuildNr. ${env.BUILD_NUMBER} <----"
-        sh "${getPython()} --version"
-        sh "${getPython()} pytest"
-
+        unstash "${shortProject}_mac"
+        script {
+          echo "----> Build on MacOS | Node: ${env.NODE_NAME} <----"
+          echo "----> Build Branch ${env.BRANCH_NAME} | BuildNr. ${env.BUILD_NUMBER} <----"
+          sh '''cd ant_build
+          java run 10
+          python3 --version'''
+        }
       }
     }
+
+
+
+
   
   }
 }
 
+// *******************************************************************************************
+// * Implementation of General Helpers 
+// *******************************************************************************************
+
 // return true if agent is unix
-// Jenkins just knows unix or windows, there is no mac (mac == unix)
 def isUnixNode() {
     return "${env.IS_UNIX}" == "true"
 }
@@ -50,7 +58,8 @@ def isUnixNode() {
 def isMac() {
     return "${env.IS_MAC}" == "true"
 }
-// return python binary name
+
+// return python binary name/path
 def getPython() {
     if ( isUnixNode() ) {
         return "python3"
