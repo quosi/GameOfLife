@@ -25,7 +25,6 @@ pipeline {
 				archiveArtifacts artifacts: 'ant_build/'
       }
     }
-
     stage('PyTest') {
       steps {
         unstash "${shortProject}_mac"
@@ -38,11 +37,6 @@ pipeline {
         }
       }
     }
-
-
-
-
-  
   }
 }
 
