@@ -1,4 +1,4 @@
-
+package org.beuth;
 public class run {
     public static void main(String[] args) {
         int[][] board_size = new int[3][3];

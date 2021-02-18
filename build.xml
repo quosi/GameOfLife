@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Game of Life" basedir="." default="build">
 
-    <property name="src.dir" value="src"/>
+    <property name="src.dir" value="src/main/java/org/beuth"/>
     <property name="build.dir" value="ant_build/"/>
     <property name="name" value="GoL"/>
 

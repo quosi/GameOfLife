@@ -10,5 +10,6 @@
 # Build tool
 /build/
 /ant_build/
+mvn_build/
 /out/
 out/

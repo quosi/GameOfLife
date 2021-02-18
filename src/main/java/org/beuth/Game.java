@@ -1,3 +1,5 @@
+package org.beuth;
+
 public class Game {
 
     public int numberOfNeighbours(int[][] board, int i,int j ){
